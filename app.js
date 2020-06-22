@@ -4,3 +4,5 @@ function calcFinance(amount, term, interest, deposit){
     monthly = (amount-deposit+interestPay) / term;
     return monthly;
 }
+
+console.log(monthly);
