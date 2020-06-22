@@ -13,5 +13,5 @@ function calcFinance(e){
     let interestPay = (amount-deposit)*(interest/100);
     let monthly = (amount-deposit+interestPay) / term;
     
-    document.getElementById('answer').textContent = monthly;
+    document.getElementById('answer').textContent = Math.round(monthly*10)/10;
 }
