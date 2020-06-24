@@ -30,10 +30,12 @@ body {
 .result {
     text-align: center;
     margin-top: 20px;
+    visibility: hidden;
+    width: auto;
 }
 
 .result p {
-    display: inline-block;
+    display: block;
     overflow: hidden;
     position: relative;
     font-size: 2rem;
@@ -48,8 +50,6 @@ body {
     margin-right: auto;
     font-weight: 500;
 }
-
-
 
 .form-control {
     margin-left: auto;
@@ -68,4 +68,9 @@ body {
 }
 #deposit {
     border: 1px solid #3498db;
+}
+
+#calc-button {
+    padding-left: 50px;
+    padding-right: 50px;
 }
