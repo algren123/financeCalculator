@@ -23,7 +23,7 @@ function calcFinance(e){
 
         
         document.getElementById('result-id').style.visibility = 'visible';
-        document.getElementById('answer').textContent = 'Result: £' + Math.round(monthly*10)/10 + "/month";
-        document.getElementById('interest-paid').textContent = 'Total interest paid: £' + Math.round(interestPay*10)/10;
+        document.getElementById('answer').textContent = 'Result: £' + ((monthly*100)/100).toFixed(2) + "/month";
+        document.getElementById('interest-paid').textContent = 'Total interest paid: £' + ((interestPay*100)/100).toFixed(2);
         }
 }
