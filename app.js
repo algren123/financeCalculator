@@ -17,7 +17,7 @@ function calcFinance(e){
         document.getElementById('answer').textContent = 'Please enter valid information';
     } else {
         //calculates amount of interest
-        let interestPay = (amount-deposit)*(interest/100);
+        let interestPay = (interest/term) * (amount-deposit);
         //calculates monthly payments
         let monthly = (amount-deposit+interestPay) / term;
 
