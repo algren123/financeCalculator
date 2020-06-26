@@ -13,9 +13,10 @@ body {
     margin-top: 5px;
 }
 
-.buttons {
+.tabcontent {
     text-align: center;
     margin-top: 50px;
+    display: none;
 }
 
 .form {
@@ -25,6 +26,7 @@ body {
     margin-top: 4px;
     margin-bottom: 10px;
     width: 30%;
+    border: 1px solid #3498db;
 }
 
 .result {
@@ -42,6 +44,32 @@ body {
     font-weight: bold;
 }
 
+.tab {
+    margin-top: 30px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.tab button {
+    display: inline-block;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #ccc;
+}
+
 #loan-amount {
     display: inline-block;
     white-space: nowrap;
@@ -57,20 +85,38 @@ body {
     border: 1px solid #3498db;
 }
 
-#amount {
-    border: 1px solid #3498db;
-}
-#term {
-    border: 1px solid #3498db;
-}
-#interest {
-    border: 1px solid #3498db;
-}
-#deposit {
-    border: 1px solid #3498db;
-}
-
 #calc-button {
     padding-left: 50px;
     padding-right: 50px;
+}
+
+#afford-button {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#error-message {
+    margin-top: 20px;
+    
+}
+
+#error {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#repay-error-message {
+    margin-top: 20px;
+    
+}
+
+#repay-error {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    font-size: 2rem;
+    font-weight: bold;
 }
