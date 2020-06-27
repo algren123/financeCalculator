@@ -30,7 +30,7 @@ function calcFinance(e){
         document.getElementById('error-message').style.visibility = 'hidden';
         document.getElementById('answer').textContent = 'Monthly payment: £' + ((monthly*100)/100).toFixed(2) + "/month";
         document.getElementById('interest-paid').textContent = 'Total interest paid: £' + ((monthly*term)-(amount-deposit)).toFixed(2);
-        document.getElementById('total-payable').textContent = 'Total amount payable: £' + (monthly*term).toFixed(2);
+        document.getElementById('total-payable').textContent = 'Total amount repayable: £' + (monthly*term).toFixed(2);
 
         }
 }
@@ -55,13 +55,14 @@ function calcAfford(e){
         let power = Math.pow(1 + interestPay, term);
 
         //calculates total loan including interest
+        let totalNoInterest = repayAmount*term - parseFloat;
         let total = ((repayAmount*(power-1)) / interestPay / power);
         
         document.getElementById('repay-result-id').style.visibility = 'visible';
         document.getElementById('repay-error-message').style.visibility = 'hidden';
-        document.getElementById('repay-answer').textContent = 'Amount you loan: £' + ((total*100)/100).toFixed(2); //calculates total loan
-        document.getElementById('repay-interest-paid').textContent = 'Total interest paid: £' + ((repayAmount*term)-total).toFixed(2); //calculates the amount of interest paid
-        document.getElementById('repay-total-payable').textContent = 'Total loan you can afford: £' + (parseFloat(deposit) + total).toFixed(2); //calculates total loan including deposit
+        document.getElementById('repay-answer').textContent = 'Total amount you can borrow: £' + (((total*100)/100)+parseFloat(deposit)).toFixed(2); //calculates total loan
+        document.getElementById('repay-interest-paid').textContent = 'Total interest paid: £' + ((repayAmount*term)-(total)).toFixed(2); //calculates the amount of interest paid
+        document.getElementById('repay-total-payable').textContent = 'Total amount repayable: £' + ((total*10)/10 + (repayAmount*term)-total).toFixed(2); //calculates total loan including deposit
 
         }
 }
