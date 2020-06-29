@@ -18,6 +18,16 @@ function calcFinance(e){
         document.getElementById('error-message').style.visibility = 'visible';
         document.getElementById('error').textContent = 'Please enter valid information';
         document.getElementById('result-id').style.visibility = 'hidden'
+    } else if (interest.value == 0){
+        
+        monthlyNoInterest = (amount-deposit)/term;
+
+        
+        document.getElementById('result-id').style.visibility = 'visible';
+        document.getElementById('error-message').style.visibility = 'hidden';
+        document.getElementById('answer').textContent = 'Monthly payment: £' + ((monthlyNoInterest*100)/100).toFixed(2) + "/month";
+        document.getElementById('interest-paid').textContent = 'Total interest paid: £0.00';
+        document.getElementById('total-payable').textContent = 'Total amount repayable: £' + (monthlyNoInterest*term).toFixed(2);
     } else {
         //calculates amount of interest
         let interestPay = parseFloat(interest.value) / 100 / 12;
@@ -48,6 +58,16 @@ function calcAfford(e){
         document.getElementById('repay-error-message').style.visibility = 'visible';
         document.getElementById('repay-error').textContent = 'Please enter valid information';
         document.getElementById('repay-result-id').style.visibility = 'hidden';
+    } else if (interest.value == 0){
+
+        //calculates total loan
+        let totalNoInterest = repayAmount*term;
+        
+        document.getElementById('repay-result-id').style.visibility = 'visible';
+        document.getElementById('repay-error-message').style.visibility = 'hidden';
+        document.getElementById('repay-answer').textContent = 'Total amount you can afford: £' + (((totalNoInterest*100)/100)+parseFloat(deposit)).toFixed(2); //calculates total loan
+        document.getElementById('repay-interest-paid').textContent = 'Total interest paid: £0.00';
+        document.getElementById('repay-total-payable').textContent = 'Total amount repayable: £' + totalNoInterest.toFixed(2); //calculates total loan including deposit
     } else {
 
         //calculates amount of interest
@@ -60,7 +80,7 @@ function calcAfford(e){
         
         document.getElementById('repay-result-id').style.visibility = 'visible';
         document.getElementById('repay-error-message').style.visibility = 'hidden';
-        document.getElementById('repay-answer').textContent = 'Total amount you can borrow: £' + (((total*100)/100)+parseFloat(deposit)).toFixed(2); //calculates total loan
+        document.getElementById('repay-answer').textContent = 'Total amount you can afford: £' + (((total*100)/100)+parseFloat(deposit)).toFixed(2); //calculates total loan
         document.getElementById('repay-interest-paid').textContent = 'Total interest paid: £' + ((repayAmount*term)-(total)).toFixed(2); //calculates the amount of interest paid
         document.getElementById('repay-total-payable').textContent = 'Total amount repayable: £' + ((total*10)/10 + (repayAmount*term)-total).toFixed(2); //calculates total loan including deposit
 
