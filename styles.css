@@ -27,12 +27,13 @@ body {
     margin-bottom: 10px;
     width: 30%;
     border: 1px solid #3498db;
+    max-width: 50%;
 }
 
 .result {
     text-align: center;
     margin-top: 20px;
-    visibility: hidden;
+    display: none;
     width: auto;
 }
 
@@ -40,7 +41,7 @@ body {
     display: block;
     overflow: hidden;
     position: relative;
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: bold;
 }
 
@@ -81,22 +82,33 @@ body {
 
 .form-control {
     margin-left: auto;
-    margin-right: 0px;
+    margin-right: 25px;
     border: 1px solid #3498db;
 }
 
 #calc-button {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 10px 50px;
+    border: none;
+    text-decoration: none;
+    background-color: #3498db;
+    color: white;
+    border-radius: 10px;
+    font-weight: 500;
 }
 
 #afford-button {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 10px 50px;
+    border: none;
+    text-decoration: none;
+    background-color: #3498db;
+    color: white;
+    border-radius: 10px;
+    font-weight: 500;
 }
 
 #error-message {
     margin-top: 20px;
+    display: none;
     
 }
 
@@ -106,10 +118,12 @@ body {
     position: relative;
     font-size: 2rem;
     font-weight: bold;
+    
 }
 
 #repay-error-message {
     margin-top: 20px;
+    display: none;
     
 }
 
@@ -119,4 +133,44 @@ body {
     position: relative;
     font-size: 2rem;
     font-weight: bold;
+}
+
+.answer-style {
+    background-color: #2ecc71;
+    color: white;
+    border-radius: 25px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+.total-style {
+    background-color: #e67e22;
+    color: white;
+    border-radius: 25px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+.interest-style {
+    background-color: #9b59b6;
+    color: white;
+    border-radius: 25px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+.error-style {
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 25px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
 }

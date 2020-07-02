@@ -14,20 +14,25 @@ function calcFinance(e){
     const deposit = document.getElementById('deposit').value;
 
         //checks if the amount entered is correct/valid and if it isn't, it lets the user know
-    if (amount <= 0 || term <= 0 || interest < 0 || deposit < 0){
-        document.getElementById('error-message').style.visibility = 'visible';
+    if (amount <= 0 || term <= 0 || interest.value < 0 || deposit < 0){
+        
+        document.getElementById('error-message').style.display = 'block';
         document.getElementById('error').textContent = 'Please enter valid information';
-        document.getElementById('result-id').style.visibility = 'hidden'
-    } else if (interest.value == 0){
+        document.getElementById('result-id').style.display = 'none';
         
-        monthlyNoInterest = (amount-deposit)/term;
+        
 
+    } else if (interest.value == 0){
+        //if interest value is 0, formula gets simplified
+        monthlyNoInterest = (amount-deposit)/term;
         
-        document.getElementById('result-id').style.visibility = 'visible';
-        document.getElementById('error-message').style.visibility = 'hidden';
+        document.getElementById('result-id').style.display = 'block';
+        document.getElementById('error-message').style.display = 'none';
         document.getElementById('answer').textContent = 'Monthly payment: £' + ((monthlyNoInterest*100)/100).toFixed(2) + "/month";
         document.getElementById('interest-paid').textContent = 'Total interest paid: £0.00';
         document.getElementById('total-payable').textContent = 'Total amount repayable: £' + (monthlyNoInterest*term).toFixed(2);
+
+       
     } else {
         //calculates amount of interest
         let interestPay = parseFloat(interest.value) / 100 / 12;
@@ -35,13 +40,13 @@ function calcFinance(e){
         //calculates monthly payments
         let monthly = ((amount-deposit)*power*interestPay)/(power-1);
 
-        
-        document.getElementById('result-id').style.visibility = 'visible';
-        document.getElementById('error-message').style.visibility = 'hidden';
+       
+        document.getElementById('result-id').style.display = 'block';
+        document.getElementById('error-message').style.display = 'none';
         document.getElementById('answer').textContent = 'Monthly payment: £' + ((monthly*100)/100).toFixed(2) + "/month";
         document.getElementById('interest-paid').textContent = 'Total interest paid: £' + ((monthly*term)-(amount-deposit)).toFixed(2);
         document.getElementById('total-payable').textContent = 'Total amount repayable: £' + (monthly*term).toFixed(2);
-
+       
         }
 }
 
@@ -54,17 +59,17 @@ function calcAfford(e){
     const interest = document.getElementById('repay-interest');
     const deposit = document.getElementById('repay-deposit').value;
 
-    if (repayAmount <= 0 || term <= 0 || interest < 0 || deposit < 0){
-        document.getElementById('repay-error-message').style.visibility = 'visible';
+    if (repayAmount <= 0 || term <= 0 || interest.value < 0 || deposit < 0){
+        document.getElementById('repay-error-message').style.display = 'block';
         document.getElementById('repay-error').textContent = 'Please enter valid information';
-        document.getElementById('repay-result-id').style.visibility = 'hidden';
+        document.getElementById('repay-result-id').style.display = 'none';
     } else if (interest.value == 0){
 
         //calculates total loan
         let totalNoInterest = repayAmount*term;
         
-        document.getElementById('repay-result-id').style.visibility = 'visible';
-        document.getElementById('repay-error-message').style.visibility = 'hidden';
+        document.getElementById('repay-result-id').style.display = 'block';
+        document.getElementById('repay-error-message').style.display = 'none';
         document.getElementById('repay-answer').textContent = 'Total amount you can afford: £' + (((totalNoInterest*100)/100)+parseFloat(deposit)).toFixed(2); //calculates total loan
         document.getElementById('repay-interest-paid').textContent = 'Total interest paid: £0.00';
         document.getElementById('repay-total-payable').textContent = 'Total amount repayable: £' + totalNoInterest.toFixed(2); //calculates total loan including deposit
@@ -78,8 +83,8 @@ function calcAfford(e){
         let totalNoInterest = repayAmount*term - parseFloat;
         let total = ((repayAmount*(power-1)) / interestPay / power);
         
-        document.getElementById('repay-result-id').style.visibility = 'visible';
-        document.getElementById('repay-error-message').style.visibility = 'hidden';
+        document.getElementById('repay-result-id').style.display = 'block';
+        document.getElementById('repay-error-message').style.display = 'none';
         document.getElementById('repay-answer').textContent = 'Total amount you can afford: £' + (((total*100)/100)+parseFloat(deposit)).toFixed(2); //calculates total loan
         document.getElementById('repay-interest-paid').textContent = 'Total interest paid: £' + ((repayAmount*term)-(total)).toFixed(2); //calculates the amount of interest paid
         document.getElementById('repay-total-payable').textContent = 'Total amount repayable: £' + ((total*10)/10 + (repayAmount*term)-total).toFixed(2); //calculates total loan including deposit

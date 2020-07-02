@@ -59,12 +59,12 @@
 
         <div class="container">
             <div id="error-message">
-                <p id="error"></p>
+                <p class="error-style" id="error"></p>
             </div>
             <div class="result" id='result-id'>
-                <p id="answer"></p>
-                <p id='total-payable'></p>
-                <p id="interest-paid"></p>
+                <p class="answer-style" id="answer"></p>
+                <p class="total-style" id='total-payable'></p>
+                <p class="interest-style" id="interest-paid"></p>
             </div>
     </div>
     
@@ -110,15 +110,16 @@
             <button type="submit" class="btn btn-primary" name='submit-button' value="Submit" id='afford-button'>Calculate</button>
         </form>
 
+        <div id="repay-error-message">
+            <p class="error-style" id="repay-error"></p>
+        </div>
         <div class="container">
-            <div id="repay-error-message">
-                <p id="repay-error"></p>
-            </div>
+    
 
             <div class="result" id='repay-result-id'>
-                <p id="repay-answer"></p>
-                <p id='repay-total-payable'></p>
-                <p id="repay-interest-paid"></p>
+                <p class="answer-style" id="repay-answer"></p>
+                <p class="total-style" id='repay-total-payable'></p>
+                <p class="interest-style" id="repay-interest-paid"></p>
             </div>
         </div>
     </div>
